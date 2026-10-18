@@ -95,3 +95,7 @@ The figures are PNG, PDF and TikZ (`.tex`) files. The TikZ files need tikzDevice
 ## Citation
 
 If you use this code, cite the paper (link to arXiv will arrive soon).
+
+## License
+
+The code has the MIT License. See `LICENSE`.
