@@ -1,0 +1,17 @@
+# Snakemake profile for SLURM. Use with: snakemake --profile slurm
+executor: slurm
+jobs: 500
+default-resources:
+  slurm_partition: batch   # set a partition of your cluster
+  mem: 4GB
+  runtime: 30m
+set-resources:
+  fit:
+    mem: 8GB
+    runtime: 24h
+  summarise:
+    mem: 25GB
+  figures:
+    mem: 25GB
+  tables:
+    mem: 25GB

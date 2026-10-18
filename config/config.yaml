@@ -1,0 +1,44 @@
+# Settings of the simulation study in the paper.
+
+# Data-generating processes
+dgp_types: [sparse_correct, dense_correct, sparse_misp, dense_misp]
+n_obs: [100]              # training and test observations
+p: [10, 15, 20, 25]       # main effects (p >= 6)
+rho: [0.5]                # AR(1) correlation of the predictors
+dgp_r2: [0.1, 0.5, 0.9]
+n_reps: 100
+seed: 1994
+
+# Models: Stan file name in stan/ and label in figures and tables
+models:
+  prox_r2: Prox-R2
+  normal_gamma: Normal-Gamma
+  r2d2: R2-D2
+  rhs: RHS
+benchmark_model: r2d2
+
+# Prior hyperparameters. The names agree with the Stan data blocks.
+hyper:
+  R2_mean: 0.33           # R2-D2, Prox-R2: R2 ~ Beta(R2_mean * R2_prec, (1 - R2_mean) * R2_prec)
+  R2_prec: 3
+  R2_alpha: 0.5           # R2-D2: Dirichlet concentration
+  proximal_lambda: 1      # Prox-R2: proximal parameter
+  max_iter: 50            # Prox-R2: Dykstra iterations
+  heredity: 1             # Normal-Gamma: 1 = strong, 2 = weak
+  c: 2                    # Normal-Gamma: tail parameter
+  hs_df: 3                # RHS
+  hs_df_global: 1
+  hs_df_slab: 4
+  hs_scale_slab: 2
+
+# MCMC
+mcmc:
+  chains: 4
+  iter_warmup: 1000
+  iter_sampling: 1000
+  max_treedepth: 15
+  adapt_delta: 0.95
+n_batches: 1              # fit jobs per scenario and model; must divide n_reps
+
+# DGP R2 values in the figures
+plot_dgp_r2: [0.1, 0.9]

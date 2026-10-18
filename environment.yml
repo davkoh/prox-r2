@@ -1,0 +1,9 @@
+name: prox-r2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - snakemake==8.18.0
+      - snakemake-executor-plugin-slurm==0.7.0

@@ -1,0 +1,8 @@
+# Small settings for a test run. Use with: snakemake --configfile config/test.yaml
+p: [6, 7]
+dgp_r2: [0.1, 0.9]
+n_reps: 4
+n_batches: 2
+mcmc:
+  iter_warmup: 200
+  iter_sampling: 200
